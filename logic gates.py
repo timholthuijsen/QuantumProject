@@ -71,8 +71,8 @@ def implies_q(cq1,cq2,tq):
 #the tests are for "and" now. I tested all the functions with function below by adjusting function name
 #they seem to work. 
 if __name__ == "__main__":
-    cq1 = cirq.GridQubit(0, 0)
-    cq2 = cirq.GridQubit(0, 1)
+    cq1 = cirq.GridQubit(1, 0)
+    cq2 = cirq.GridQubit(1, 1)
     tq = cirq.GridQubit(0, 2)
     circuit = cirq.Circuit()
     and_q2_circuit = and_q(cq1, cq2, tq)
@@ -101,7 +101,7 @@ if __name__ == "__main__":
     print()
     print(print_circuit(circuit))
     print()
-    """
+    
     print(
         "If you implemented the or2 circuit correctly, we should obtain the following measurement outcomes:"
     )
@@ -110,7 +110,7 @@ if __name__ == "__main__":
     print("  x2={}".format("1" * 20))
     print("  x3={}".format("1" * 20))
     print()
-    """
+
     print("The actual outcome is:")
     print()
     print(

@@ -2,6 +2,7 @@
 
 from qiskit import *
 from qiskit.visualization import plot_histogram
+from qiskit.tools.monitor import job_monitor
 import numpy as np
 
 def NOT(inp):
@@ -73,7 +74,6 @@ def XOR(inp1,inp2):
     # this is where your program for quantum XOR gate goes
     qc.cx(2,0)
     qc.cx(2,1)
-    qc.x(0)
     # barrier between input state and gate operation 
     qc.barrier()
     
@@ -271,6 +271,6 @@ def tests():
     for inp1 in ['0', '1']:
         for inp2 in ['0', '1']:
             qc, output = IMPLIES(inp1, inp2)
-            print('OR with inputs',inp1,inp2,'gives output',output)
+            print('IMPLIES with inputs',inp1,inp2,'gives output',output)
          #   display(qc.draw())
             print('\n')

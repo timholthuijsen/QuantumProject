@@ -30,9 +30,9 @@ def lb():
     return least_busy(provider.backends(filters=lambda x: x.configuration().n_qubits >= 2 and 
                                         not x.configuration().simulator and x.status().operational==True))
 
-backend = lb()
+#backend = lb()
 #backend = provider.get_backend('ibmq_athens')
-#backend = Aer.get_backend('qasm_simulator')
+backend = Aer.get_backend('qasm_simulator')
 print(backend)
 
 def inefficientNOT(inefficiencies, inp, layout = [0], n_times = 100):
@@ -139,7 +139,7 @@ def makeresults2(number):
     results = {}
     for inefs in range(1,number,2):
         output = inefficientNOT(inefs,'0')
-        results[str(inefs - 1)] = output['1']
+        results[str(inefs)] = output['1']
     return results
 
 def plotNOTS2(inefs):

@@ -13,6 +13,8 @@ with open('quantum_gates.json', 'r') as f:
     basic_res = json.load(f)
 #print(basic_res)
 
+tim_res = {'1': 97, '3': 95, '5': 94, '7': 94, '9': 98}
+
 brkeys = list(basic_res.keys())
 newdict = {}
 for akey in brkeys:
@@ -110,3 +112,18 @@ def plot_not():
     ax.legend( (yes[0],no[0]), ('correct','wrong') )
     
     return tot_cor, tot_wr
+
+def plot_tim():
+    namelist = sorted(list(tim_res.keys()))
+    reslist = [tim_res[i] for i in namelist]
+    neglist =[ 100 - n for n in reslist]
+    print(namelist,reslist,neglist)
+    ind = np.arange(5)
+    fig = plt.figure()
+    ax = fig.add_axes([0,0,1,1])
+    yes = ax.bar(ind, reslist, width = 0.25)
+    no = ax.bar(ind + 0.25, neglist, width = 0.25)
+    plt.title('Inefficient NOT-gate')
+    ax.set_xticks(ind+0.25)
+    ax.set_xticklabels(namelist)
+    ax.legend( (yes[0],no[0]), ('correct','wrong'))

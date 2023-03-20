@@ -58,7 +58,7 @@ def inefficientNOT(inefficiencies, inp, layout = [0], n_times = 100):
         qc.x(0)
     #barrier between gate operation and measurement
     qc.barrier()
-    qc.measure(0,0)
+    #qc.measure(0,0)
     trial = qc.measure(0,0)
     
     qc_trans = transpile(qc, backend, initial_layout=layout, optimization_level=3)
